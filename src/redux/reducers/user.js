@@ -1,4 +1,4 @@
-import { types } from "../types";
+import { types } from "../types/types";
 
 const init_state = {
   id: 0,
@@ -6,15 +6,13 @@ const init_state = {
   email: "",
 };
 
-export const userReducer = (state = init_state, actiion) => {
-  if (actiion.type == types.login) {
+export const userReducer = (state = init_state, action) => {
+  if (action.type === types.USER_LOGIN) {
     return {
-      ...state,
-      id: actiion.payload.id,
-      fullname: actiion.payload.fullname,
-      email: actiion.payload.email,
+      ...action,
+      ...action.payload,
     };
-  } else if (actiion.type == types.logout) return init_state;
+  } else if (action.type === types.USER_LOGOUT) return init_state;
 
   return state;
 };
