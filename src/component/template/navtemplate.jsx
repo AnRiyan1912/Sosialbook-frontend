@@ -1,14 +1,14 @@
 import { NavBar } from "../layouts/navbar";
 import { SideBar } from "../layouts/sidebar";
 
-export const NavTemplate = ({ chiledren }) => {
+export const NavTemplate = ({ children }) => {
   return (
     <>
       <NavBar />
-      <div className="flex justify-center">
-        <div>{chiledren}</div>
-      </div>
       <SideBar />
+      <div className="flex justify-center ">
+        <div>{children}</div>
+      </div>
     </>
   );
 };

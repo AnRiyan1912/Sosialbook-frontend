@@ -146,6 +146,11 @@ export const LoginPage = () => {
                         </div>
                       </FormLabel>
                       <Input
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            formik.handleSubmit();
+                          }
+                        }}
                         onChange={(e) =>
                           formik.setFieldValue("user", e.target.value)
                         }
@@ -159,6 +164,11 @@ export const LoginPage = () => {
                         </div>
                       </FormLabel>
                       <Input
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            formik.handleSubmit();
+                          }
+                        }}
                         onChange={(e) =>
                           formik.setFieldValue("password", e.target.value)
                         }
@@ -173,7 +183,9 @@ export const LoginPage = () => {
                   </Button>
                 </HStack>
                 <Stack spacing="6">
-                  <Button onClick={formik.handleSubmit}>Sign in</Button>
+                  <Button onClick={formik.handleSubmit} type="submit">
+                    Sign in
+                  </Button>
                   <HStack>
                     <Divider />
                     <Text textStyle="sm" whiteSpace="nowrap" color="fg.muted">
