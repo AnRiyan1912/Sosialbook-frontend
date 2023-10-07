@@ -35,10 +35,10 @@ export const LoginPage = () => {
   const dispatch = useDispatch();
   const toast = useToast();
   const formik = useFormik({
-    initialValues: { username: "", email: "", password: "" },
+    initialValues: { user: "", password: "" },
     onSubmit: async (values) => {
       const result = await dispatch(userLogin(values));
-      console.log(result);
+      console.log(result, "ini result");
       if (result === types.success) {
         nav("/home");
         showToast(
@@ -49,15 +49,16 @@ export const LoginPage = () => {
           "Login Failed",
           result
         );
+      } else {
+        toast({
+          title: "failed",
+          description: result?.message,
+          status: "error",
+          duration: 1000,
+          isClosable: true,
+          position: "top",
+        });
       }
-      showToast(
-        toast,
-        result == false,
-        "Login Success",
-        "success",
-        "Login Failed",
-        result
-      );
     },
   });
 
@@ -145,9 +146,8 @@ export const LoginPage = () => {
                         </div>
                       </FormLabel>
                       <Input
-                        id="email"
                         onChange={(e) =>
-                          formik.setFieldValue("username", e.target.value)
+                          formik.setFieldValue("user", e.target.value)
                         }
                       />
                     </div>

@@ -6,23 +6,25 @@ export const showToast = (
   success,
   success_dsc,
   failed,
-  failed_desc
+  failed_desc,
+  result
 ) => {
-  if (condition === types.success)
+  if (condition === types.success) {
     return toast({
       title: success,
       description: success_dsc,
       status: "success",
-      duration: 1500,
+      duration: 1000,
       isClosable: true,
       position: "top",
     });
+  }
 
-  toast({
+  return toast({
     title: failed,
-    description: failed_desc,
+    description: result?.message,
     status: "error",
-    duration: 1500,
+    duration: 1000,
     isClosable: true,
     position: "top",
   });

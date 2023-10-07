@@ -1,5 +1,6 @@
 import { HomePage } from "../pages/home/home";
 import { LoginPage } from "../pages/login/login";
+import { Marketplace } from "../pages/marketplace/marketplace";
 
 class RouteClass {
   constructor(
@@ -17,4 +18,5 @@ class RouteClass {
 export const routes = [
   new RouteClass("login", <LoginPage />, false, true),
   new RouteClass("home", <HomePage />, true, false),
+  new RouteClass("marketplace", <Marketplace />, true, false),
 ];
