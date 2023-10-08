@@ -1,7 +1,7 @@
 export const StoryCard = () => {
   return (
     <>
-      <div className="w-32  text-white border-2  border-white p-1">
+      <div className="w-32  text-black border-2  border-white p-1">
         <div className="col-auto" style={{ imageProfile: "" }}>
           <div className=" rounded-full w-5 top-0 h-5">
             <img
