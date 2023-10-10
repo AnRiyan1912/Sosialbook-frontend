@@ -63,7 +63,7 @@ export const LoginPage = () => {
   });
 
   return (
-    <div className="col-auto">
+    <div className="col-auto ">
       <div className="2xl:h-40 max-2xl:h-16"></div>
       <div className="flex justify-center  ">
         <div className="object-cover ml-8">
