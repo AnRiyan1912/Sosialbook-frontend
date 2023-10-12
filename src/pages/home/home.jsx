@@ -3,21 +3,22 @@ import { PostCard } from "../../component/card/post-card/postcard";
 import { StoryCard } from "../../component/card/story-card/storycard";
 import { NavTemplate } from "../../component/template/navtemplate";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { api } from "../../api/axios";
 // require modules
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css";
-import { api } from "../../api/axios";
-import { CaretRight, CaretLeft } from "@phosphor-icons/react";
-
+import "../../css/style.css";
+import { compareTimeCreated } from "../../utils/compare-time-created";
 export const HomePage = () => {
   const [post, setPost] = useState([]);
-
+  const [onOpen, setOnOpen] = useState(false);
+  console.log(post);
   const fetchPost = async () => {
     await api
-      .get("/post")
-      .then((result) => setPost(result.data))
+      .get("/post/withuser")
+      .then((result) => setPost(result?.data.posts))
       .catch((err) => console.log(err?.message));
   };
   console.log(post);
@@ -38,15 +39,16 @@ export const HomePage = () => {
               </div> */}
               {/* <div className="flex"> */}
               <Swiper
-                navigation={true}
                 modules={[Navigation]}
                 className="mySwiper"
+                slidesPerView={4}
+                navigation={true}
               >
-                {Array.from({ length: 100 }).map((item, index) => (
-                  <SwiperSlide style={{ width: "145px" }}>
-                    <StoryCard key={index} />
+                {Array.from({ length: 50 }).map((item, index) => (
+                  <SwiperSlide key={index} style={{ width: "145px" }}>
+                    <StoryCard />
                   </SwiperSlide>
-                ))}
+                ))}{" "}
               </Swiper>
 
               {/* </div> */}

@@ -4,54 +4,59 @@ import {
   ChatCenteredText,
   DotsThreeOutlineVertical,
 } from "@phosphor-icons/react";
+import { compareTimeCreated } from "../../../utils/compare-time-created";
 export const PostCard = ({ post }) => {
   return (
     <>
       {post.map((itemPost, index) => {
         return (
           <div
-            className="col-auto border-2 border-gray-200 rounded-lg mt-10 "
+            className="col-auto border-2 bg-slate-100 rounded-lg mt-10 "
             key={index}
           >
             <div className="flex gap-2 p-2">
               <div>
                 <img
-                  src="https://awsimages.detik.net.id/community/media/visual/2019/02/19/42393387-9c5c-4be4-97b8-49260708719e.jpeg?w=600&q=90"
+                  src={itemPost?.users?.image_profile}
                   alt="profileimage"
                   className="rounded-full w-10 h-10 object-fill"
                 />
               </div>
               <div className=" flex items-center ">
                 <div className="font-semibold text-sm">
-                  <span>Andre Riyanto</span>
+                  <span>{itemPost?.users?.firstname}</span>
                 </div>
 
-                <div className="absolute mt-10 text-xs">2 day ago</div>
+                <div className="absolute mt-10 text-xs">
+                  {compareTimeCreated(itemPost?.createdAt)}
+                </div>
               </div>
             </div>
             <div className="col-auto p-2">
               <div className="text-xs">
-                <span>Kepulauan Riau,</span>
-              </div>
-              <div className="text-xs">
-                <span>Batam</span>
+                <span>{itemPost?.caption}</span>
               </div>
             </div>
             <div>
               <img
-                src="https://images.pexels.com/photos/2526398/pexels-photo-2526398.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src={itemPost?.image_post}
                 alt="postimage"
                 style={{ width: "1000px", height: "400px" }}
               />
             </div>
-            <div className="flex  justify-between p-6">
-              <div className="flex gap-10">
+            <div className="flex  justify-center gap-32 p-6">
+              <div className="flex gap-2">
                 <ThumbsUp size={24} />
-                <ThumbsDown size={24} />
+                <span>Suka</span>
               </div>
-
-              <ChatCenteredText size={24} />
-              <DotsThreeOutlineVertical size={24} />
+              <div className="flex gap-2">
+                <ChatCenteredText size={24} />
+                <span>Komentar</span>
+              </div>
+              <div className="flex gap-2">
+                <DotsThreeOutlineVertical size={24} />
+                <span>Bagikan</span>
+              </div>
             </div>
           </div>
         );

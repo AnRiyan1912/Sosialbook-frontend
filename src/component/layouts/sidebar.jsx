@@ -24,32 +24,34 @@ export const SideBar = () => {
               </span>
             </div>
           </div>
-          <div className="flex gap-2 ml-2 mt-6">
-            <div>
+          <div className="flex gap-2 mt-6 hover:bg-purple-900 hover:text-white rounded-xl">
+            <div className="p-2">
               <Users size={36} />
             </div>
-            <span>Friends</span>
+            <span className="flex justify-center items-center">Friends</span>
           </div>
           <div
-            className="flex gap-2 ml-2 mt-6 cursor-pointer"
+            className="flex gap-2 mt-6 cursor-pointer hover:bg-purple-900 hover:text-white rounded-xl"
             onClick={() => nav("/marketplace")}
           >
-            <div>
+            <div className="p-2">
               <Storefront size={36} />
             </div>
-            <span>Marketplace</span>
+            <span className="flex justify-center items-center">
+              Marketplace
+            </span>
           </div>
-          <div className="flex gap-2 ml-2 mt-6">
-            <div>
+          <div className="flex gap-2 mt-6  hover:bg-purple-900 hover:text-white rounded-xl">
+            <div className="p-2">
               <Users size={36} />
             </div>
-            <span>Friends</span>
+            <span className="flex justify-center items-center">Friends</span>
           </div>
-          <div className="flex gap-2 ml-2 mt-6">
-            <div>
+          <div className="flex gap-2 mt-6  hover:bg-purple-900 hover:text-white rounded-xl">
+            <div className="p-2">
               <Users size={36} />
             </div>
-            <span>Friends</span>
+            <span className="flex justify-center items-center">Friends</span>
           </div>
         </div>
       </nav>
