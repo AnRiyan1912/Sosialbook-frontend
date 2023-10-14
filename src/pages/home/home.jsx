@@ -30,7 +30,7 @@ export const HomePage = () => {
       <NavTemplate>
         <div className="flex ">
           <div
-            className="mt-14 h-full  bg-white 2xl:ml-96 max-2xl:ml-80  "
+            className="mt-14 h-full  2xl:ml-96 max-2xl:ml-80  "
             style={{ maxWidth: "600px" }}
           >
             <div className="flex gap-1  overflow-x-auto   ">

@@ -11,7 +11,7 @@ export const PostCard = ({ post }) => {
       {post.map((itemPost, index) => {
         return (
           <div
-            className="col-auto border-2 bg-slate-100 rounded-lg mt-10 "
+            className="col-auto border-2 bg-slate-100 rounded-lg mt-5 "
             key={index}
           >
             <div className="flex gap-2 p-2">
