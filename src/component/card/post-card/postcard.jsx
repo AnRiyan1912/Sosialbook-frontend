@@ -5,13 +5,14 @@ import {
   DotsThreeOutlineVertical,
 } from "@phosphor-icons/react";
 import { compareTimeCreated } from "../../../utils/compare-time-created";
+
 export const PostCard = ({ post }) => {
   return (
     <>
       {post.map((itemPost, index) => {
         return (
           <div
-            className="col-auto border-2 bg-slate-100 rounded-lg mt-5 "
+            className="col-auto border-2 bg-slate-100 rounded-lg mt-5 relative"
             key={index}
           >
             <div className="flex gap-2 p-2">
@@ -22,11 +23,10 @@ export const PostCard = ({ post }) => {
                   className="rounded-full w-10 h-10 object-fill"
                 />
               </div>
-              <div className=" flex items-center ">
+              <div className="flex items-center">
                 <div className="font-semibold text-sm">
                   <span>{itemPost?.users?.firstname}</span>
                 </div>
-
                 <div className="absolute mt-10 text-xs">
                   {compareTimeCreated(itemPost?.createdAt)}
                 </div>
@@ -45,9 +45,15 @@ export const PostCard = ({ post }) => {
               />
             </div>
             <div className="flex  justify-center gap-32 p-6">
-              <div className="flex gap-2">
+              <div className="flex gap-2 hover:select-container cursor-pointer hover:bg-slate-300 relative">
                 <ThumbsUp size={24} />
                 <span>Suka</span>
+                <div className="select-container invisible absolute bg-white py-2 px-4 rounded-md space-y-2 top-10 -right-4">
+                  <span>Dislike</span>
+                  <span>Love</span>
+                  <span>Senang</span>
+                  <span>Marah</span>
+                </div>
               </div>
               <div className="flex gap-2">
                 <ChatCenteredText size={24} />
