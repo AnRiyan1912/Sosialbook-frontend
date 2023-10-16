@@ -2,7 +2,7 @@ import { Chat, ThumbsUp, ShareFat, DotsThree } from "@phosphor-icons/react";
 
 export const CardWatch = () => {
   return (
-    <div className="flex text-white justify-center mt-20 ml-48 border-2 border-slate-100 p-4">
+    <div className="flex text-white justify-center mt-20 xl:ml-72 border-2 border-slate-100 p-4 2xl:ml-48">
       <div className="col-auto">
         <div className="flex justify-between">
           <div className="flex items-center gap-4">

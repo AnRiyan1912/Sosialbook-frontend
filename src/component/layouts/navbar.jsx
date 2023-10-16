@@ -7,21 +7,22 @@ import {
   ChatCircleDots,
   House,
   Bell,
+  CaretDown,
 } from "@phosphor-icons/react";
 import { userLogout } from "../../redux/middlewares/auth-middlewares";
 import { useNavigate } from "react-router-dom";
 import { ModalMessage } from "../modal/modal-message/modal-message";
 import { useState } from "react";
+import { handleLogout } from "../../utils/handle-logout";
+import { ModalOptionProfile } from "../modal/modal-option-profile/modal-option-profile";
 
 export const NavBar = () => {
   const [openMessage, setOpenMessage] = useState(false);
+  const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const nav = useNavigate();
   const userSelector = useSelector((state) => state.auth);
-  const handleLogout = async () => {
-    await dispatch(userLogout());
-    nav("/login");
-  };
+
   return (
     <div className="top-0 fixed w-full h-14 text-black bg-white z-10 border-b-2 border-violet-700">
       <nav className="flex  justify-between">
@@ -77,17 +78,20 @@ export const NavBar = () => {
           <div className="cursor-pointer">
             <Bell size={28} />
           </div>
-          <div className="cursor-pointer object-cover w-10 h-10">
+          <div
+            className="cursor-pointer object-cover w-12 h-12"
+            onClick={open ? () => setOpen(false) : () => setOpen(true)}
+          >
             <img
               src={userSelector.image_profile}
               alt=""
-              className="rounded-full w-10 h-10"
+              className="rounded-full w-12 h-12"
             />
-          </div>
-          <div className="border-2  border-violet-700 p-1 rounded-lg">
-            <button className="bg-white" onClick={() => handleLogout()}>
-              Logout
-            </button>
+            <div className="absolute top-8 right-1 text-white font-bold rounded-full w-4 h-4 bg-gray-900">
+              <CaretDown size={18} />
+            </div>
+
+            {open ? <ModalOptionProfile /> : ""}
           </div>
         </div>
       </nav>

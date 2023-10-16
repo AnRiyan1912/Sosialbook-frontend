@@ -14,14 +14,14 @@ import { compareTimeCreated } from "../../utils/compare-time-created";
 export const HomePage = () => {
   const [post, setPost] = useState([]);
   const [onOpen, setOnOpen] = useState(false);
-  console.log(post);
+
   const fetchPost = async () => {
     await api
       .get("/post/withuser")
       .then((result) => setPost(result?.data.posts))
       .catch((err) => console.log(err?.message));
   };
-  console.log(post);
+
   useEffect(() => {
     fetchPost();
   }, []);
