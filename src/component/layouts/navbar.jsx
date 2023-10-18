@@ -15,16 +15,18 @@ import { ModalMessage } from "../modal/modal-message/modal-message";
 import { useState } from "react";
 import { handleLogout } from "../../utils/handle-logout";
 import { ModalOptionProfile } from "../modal/modal-option-profile/modal-option-profile";
+import { ModalNotification } from "../modal/modal-notification/modal-notification";
 
 export const NavBar = () => {
   const [openMessage, setOpenMessage] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [openProfile, setOpenProfile] = useState(false);
+  const [openNotification, setOpenNotification] = useState(false);
   const dispatch = useDispatch();
   const nav = useNavigate();
   const userSelector = useSelector((state) => state.auth);
 
   return (
-    <div className="top-0 fixed w-full h-14 text-black bg-white z-10 border-b-2 border-violet-700">
+    <div className="top-0 fixed w-full h-14 text-black bg-white z-10 border-b-2 border-violet-700 px-4">
       <nav className="flex  justify-between">
         <div className="flex items-center ml-1 gap-2">
           <span
@@ -75,23 +77,35 @@ export const NavBar = () => {
             <ChatCircleDots size={28} />
             <ModalMessage openMessage={openMessage} />
           </div>
-          <div className="cursor-pointer">
+          <div
+            className="cursor-pointer"
+            onClick={
+              openNotification
+                ? () => setOpenNotification(false)
+                : () => setOpenNotification(true)
+            }
+          >
             <Bell size={28} />
+            {openNotification ? <ModalNotification /> : ""}
           </div>
           <div
             className="cursor-pointer object-cover w-12 h-12"
-            onClick={open ? () => setOpen(false) : () => setOpen(true)}
+            onClick={
+              openProfile
+                ? () => setOpenProfile(false)
+                : () => setOpenProfile(true)
+            }
           >
             <img
               src={userSelector.image_profile}
               alt=""
               className="rounded-full w-12 h-12"
             />
-            <div className="absolute top-8 right-1 text-white font-bold rounded-full w-4 h-4 bg-gray-900">
+            <div className="absolute top-8 right-5 text-white font-bold rounded-full w-4 h-4 bg-gray-900">
               <CaretDown size={18} />
             </div>
 
-            {open ? <ModalOptionProfile /> : ""}
+            {openProfile ? <ModalOptionProfile /> : ""}
           </div>
         </div>
       </nav>
