@@ -53,36 +53,36 @@ export const PostCard = ({ post }) => {
                 style={{ width: "1000px", height: "400px" }}
               />
             </div>
-            <div className="head justify-center gap-32 p-6 group flex">
-              <div className="flex gap-2 hover:select-container cursor-pointer hoverbg-slate-300">
+            <div className="head justify-center gap-32 p-6  flex">
+              <div className="flex gap-2 hover:select-container cursor-pointer hoverbg-slate-300 group">
                 <ThumbsUp size={24} />
                 <span>Suka</span>
-              </div>
-              <div className="group-hover:opacity-100 transition-opacitypx-1 absolute -translate-x-1/2 translate-y-full opacity-0 text-white -mt-20 -ml-32 flex gap-3">
-                <div className="cursor-pointer text-blue-600">
-                  <span>
-                    <AiFillDislike size={36} />
-                  </span>
-                </div>
-                <div className="cursor-pointer text-red-500">
-                  <span>
-                    <AiFillHeart size={36} />
-                  </span>
-                </div>
-                <div className="cursor-pointer text-yellow-300">
-                  <span>
-                    <FaFaceLaughSquint size={36} />
-                  </span>
-                </div>
-                <div className="cursor-pointer  text-yellow-300">
-                  <span>
-                    <BsFillEmojiSmileFill size={36} />
-                  </span>
-                </div>
-                <div className="cursor-pointer text-red-400">
-                  <span>
-                    <BsFillEmojiAngryFill size={36} />
-                  </span>
+                <div className="group-hover:opacity-100 transition-opacitypx-1 absolute -translate-x-1/2 translate-y-full opacity-0 text-white -mt-20 ml-20 flex gap-3">
+                  <div className="cursor-pointer text-blue-600">
+                    <span>
+                      <AiFillDislike size={36} />
+                    </span>
+                  </div>
+                  <div className="cursor-pointer text-red-500">
+                    <span>
+                      <AiFillHeart size={36} />
+                    </span>
+                  </div>
+                  <div className="cursor-pointer text-yellow-300">
+                    <span>
+                      <FaFaceLaughSquint size={36} />
+                    </span>
+                  </div>
+                  <div className="cursor-pointer  text-yellow-300">
+                    <span>
+                      <BsFillEmojiSmileFill size={36} />
+                    </span>
+                  </div>
+                  <div className="cursor-pointer text-red-400">
+                    <span>
+                      <BsFillEmojiAngryFill size={36} />
+                    </span>
+                  </div>
                 </div>
               </div>
               <div className="flex gap-2">

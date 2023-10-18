@@ -17,8 +17,8 @@ export const ModalNotification = () => {
       </div>
 
       <div>
-        <ul>
-          <li className="flex justify-between p-3">
+        <ul className="p-2">
+          <li className="flex justify-between p-3 hover:bg-purple-900 hover:text-white rounded-xl">
             <div>
               <img
                 src="https://share.america.gov/wp-content/uploads/2016/05/NWCCI7_ExchangesAre.jpg"
@@ -30,10 +30,10 @@ export const ModalNotification = () => {
               <span>Mungkin ada pesan dari Jamal</span>
             </div>
             <div className="flex justify-center items-center">
-              <div className="w-3 h-3 rounded-full bg-purple-900"></div>
+              <div className="w-3 h-3 rounded-full  bg-purple-900"></div>
             </div>
           </li>
-          <li className="flex justify-between p-3">
+          <li className="flex justify-between p-3  hover:bg-purple-900 hover:text-white rounded-xl">
             <div>
               <img
                 src="https://share.america.gov/wp-content/uploads/2016/05/NWCCI7_ExchangesAre.jpg"
@@ -45,10 +45,10 @@ export const ModalNotification = () => {
               <span>Mungkin ada pesan dari Jamal</span>
             </div>
             <div className="flex justify-center items-center">
-              <div className="w-3 h-3 rounded-full bg-purple-900"></div>
+              <div className="w-3 h-3 rounded-full   bg-purple-900"></div>
             </div>
           </li>
-          <li className="flex justify-between p-3">
+          <li className="flex justify-between p-3  hover:bg-purple-900 hover:text-white rounded-xl">
             <div>
               <img
                 src="https://share.america.gov/wp-content/uploads/2016/05/NWCCI7_ExchangesAre.jpg"
@@ -60,10 +60,10 @@ export const ModalNotification = () => {
               <span>Mungkin ada pesan dari Jamal</span>
             </div>
             <div className="flex justify-center items-center">
-              <div className="w-3 h-3 rounded-full bg-purple-900"></div>
+              <div className="w-3 h-3 rounded-full   bg-purple-900"></div>
             </div>
           </li>
-          <li className="flex justify-between p-3">
+          <li className="flex justify-between p-3  hover:bg-purple-900 hover:text-white rounded-xl">
             <div>
               <img
                 src="https://share.america.gov/wp-content/uploads/2016/05/NWCCI7_ExchangesAre.jpg"
@@ -75,7 +75,7 @@ export const ModalNotification = () => {
               <span>Mungkin ada pesan dari Jamal</span>
             </div>
             <div className="flex justify-center items-center">
-              <div className="w-3 h-3 rounded-full bg-purple-900"></div>
+              <div className="w-3 h-3 rounded-full  bg-purple-900"></div>
             </div>
           </li>
         </ul>
