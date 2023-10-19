@@ -23,14 +23,18 @@ import {
   Key,
   FacebookLogo,
   GoogleLogo,
+  EyeSlash,
+  Eye,
 } from "@phosphor-icons/react";
 import { useDispatch } from "react-redux";
 import { userLogin } from "../../redux/middlewares/auth-middlewares";
 import { types } from "../../redux/types/types";
 import { showToast } from "../../lib/toast";
 import BgLogin from "../../assets/commuication.jpg";
+import { useState } from "react";
 
 export const LoginPage = () => {
+  const [seePassword, setSeepassword] = useState(false);
   const nav = useNavigate();
   const dispatch = useDispatch();
   const toast = useToast();
@@ -145,16 +149,18 @@ export const LoginPage = () => {
                           <EnvelopeSimple size={24} /> Email
                         </div>
                       </FormLabel>
-                      <Input
-                        onKeyDown={(e) => {
-                          if (e.key === "Enter") {
-                            formik.handleSubmit();
+                      <div className="border border-white rounded-md">
+                        <Input
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                              formik.handleSubmit();
+                            }
+                          }}
+                          onChange={(e) =>
+                            formik.setFieldValue("user", e.target.value)
                           }
-                        }}
-                        onChange={(e) =>
-                          formik.setFieldValue("user", e.target.value)
-                        }
-                      />
+                        />
+                      </div>
                     </div>
 
                     <div className="mt-4">
@@ -163,16 +169,35 @@ export const LoginPage = () => {
                           <Key size={24} /> Password
                         </div>
                       </FormLabel>
-                      <Input
-                        onKeyDown={(e) => {
-                          if (e.key === "Enter") {
-                            formik.handleSubmit();
+                      <div className="flex justify-between border border-white rounded-md ">
+                        <Input
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                              formik.handleSubmit();
+                            }
+                          }}
+                          type={seePassword ? "text" : "password"}
+                          onBlur={formik.handleBlur("password")}
+                          value={formik.values.password}
+                          onChange={(e) =>
+                            formik.setFieldValue("password", e.target.value)
                           }
-                        }}
-                        onChange={(e) =>
-                          formik.setFieldValue("password", e.target.value)
-                        }
-                      />
+                        />
+                        <div
+                          className="border border-white rounded-md flex justify-center items-center cursor-pointer hover:bg-white hover:text-black p-1"
+                          onClick={
+                            seePassword
+                              ? () => setSeepassword(false)
+                              : () => setSeepassword(true)
+                          }
+                        >
+                          {seePassword ? (
+                            <EyeSlash size={20} />
+                          ) : (
+                            <Eye size={20} />
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </FormControl>
                 </Stack>

@@ -1,6 +1,7 @@
 import { HomePage } from "../pages/home/home";
 import { LoginPage } from "../pages/login/login";
 import { Marketplace } from "../pages/marketplace/marketplace";
+import { RedirectLogin } from "../pages/redirect/redirect-login";
 import { WatchVideo } from "../pages/watch/watch-video";
 
 class RouteClass {
@@ -21,4 +22,6 @@ export const routes = [
   new RouteClass("home", <HomePage />, true, false),
   new RouteClass("marketplace", <Marketplace />, true, false),
   new RouteClass("watchvideo", <WatchVideo />),
+
+  new RouteClass("*", <RedirectLogin />),
 ];

@@ -11,6 +11,7 @@ import "swiper/css/navigation";
 import "swiper/css";
 import "../../css/style.css";
 import { compareTimeCreated } from "../../utils/compare-time-created";
+import { CardCreatePost } from "../../component/card/card-create-post/card-create-post";
 export const HomePage = () => {
   const [post, setPost] = useState([]);
   const [onOpen, setOnOpen] = useState(false);
@@ -56,6 +57,7 @@ export const HomePage = () => {
                 <CaretRight size={44} />
               </div> */}
             </div>
+            <CardCreatePost />
             <PostCard post={post} />;
           </div>
           <div
