@@ -55,6 +55,7 @@ export const PostCard = ({ post, key }) => {
           {post?.imageposts.map((images) => {
             return (
               <img
+                className="object-cover"
                 src={renderImagePost + images.image}
                 alt="postimage"
                 style={{ minWidth: "600px", height: "500px" }}

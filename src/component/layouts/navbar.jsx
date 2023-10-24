@@ -10,12 +10,13 @@ import {
   CaretDown,
 } from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ModalMessage } from "../modal/messages/modal-message";
 import { ModalOptionProfile } from "../modal/profile/modal-option-profile";
 import { ModalNotification } from "../modal/notification/modal-notification";
+import { api } from "../../api/axios";
 
-export const NavBar = () => {
+export const NavBar = ({ imageUser }) => {
   const [openMessage, setOpenMessage] = useState(false);
   const [openProfile, setOpenProfile] = useState(false);
   const [openNotification, setOpenNotification] = useState(false);
@@ -94,16 +95,12 @@ export const NavBar = () => {
                 : () => setOpenProfile(true)
             }
           >
-            <img
-              src={userSelector.image_profile}
-              alt=""
-              className="rounded-full w-12 h-12"
-            />
+            <img src={imageUser} alt="" className="rounded-full w-12 h-12" />
             <div className="absolute top-8 right-5 text-white font-bold rounded-full w-4 h-4 bg-gray-900">
               <CaretDown size={18} />
             </div>
 
-            {openProfile ? <ModalOptionProfile /> : ""}
+            {openProfile ? <ModalOptionProfile imageUser={imageUser} /> : ""}
           </div>
         </div>
       </nav>

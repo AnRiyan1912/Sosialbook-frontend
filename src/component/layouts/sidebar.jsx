@@ -2,7 +2,7 @@ import { Storefront, Video, UsersThree, Users } from "@phosphor-icons/react";
 import ImgProfile from "../../assets/default-avatar-profile.jpg";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-export const SideBar = () => {
+export const SideBar = ({ imageUser }) => {
   const nav = useNavigate();
   const userSelector = useSelector((state) => state.auth);
   return (
@@ -12,11 +12,7 @@ export const SideBar = () => {
           <div className="h-20  "></div>
           <div className="flex gap-2 ml-2">
             <div className="w-10 h-10">
-              <img
-                src={userSelector.image_profile}
-                alt=""
-                className="w-10 h-10 rounded-full"
-              />
+              <img src={imageUser} alt="" className="w-10 h-10 rounded-full" />
             </div>
             <div className="flex items-center justify-center">
               <span>

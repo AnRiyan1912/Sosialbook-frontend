@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { handleLogout } from "../../../utils/handle-logout";
 
-export const ModalOptionProfile = () => {
+export const ModalOptionProfile = ({ imageUser }) => {
   const dispatch = useDispatch();
   const nav = useNavigate();
   return (
@@ -12,7 +12,7 @@ export const ModalOptionProfile = () => {
           <div className="flex gap-2 justify-center items-center object-cover">
             <img
               className="w-10 h-10 rounded-full"
-              src="https://d1hjkbq40fs2x4.cloudfront.net/2016-01-31/files/1045.jpg"
+              src={imageUser}
               alt="img-profile"
             />
             <span>Andre Riyanto</span>

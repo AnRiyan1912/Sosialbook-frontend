@@ -7,7 +7,6 @@ export const userLogin = (values) => {
     try {
       if (values?.data?.token) {
         localStorage.setItem("auth", values?.data?.token);
-
         dispatch({
           type: types.USER_LOGIN,
           payload: values?.data?.user,
@@ -19,7 +18,9 @@ export const userLogin = (values) => {
         return response.data;
       }
       const user = response?.data?.user;
+      //set token to localstorage
       localStorage.setItem("auth", response?.data?.token);
+
       dispatch({
         type: types.USER_LOGIN,
         payload: user,

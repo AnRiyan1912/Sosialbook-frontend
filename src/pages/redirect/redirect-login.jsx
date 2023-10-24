@@ -3,7 +3,12 @@ import { useNavigate } from "react-router-dom";
 
 export const RedirectLogin = () => {
   const nav = useNavigate();
+
   useEffect(() => {
-    nav("/login");
+    if (!localStorage.getItem("auth")) {
+      nav("/login");
+    } else if (localStorage.getItem("auth")) {
+      nav("/home");
+    }
   }, []);
 };
