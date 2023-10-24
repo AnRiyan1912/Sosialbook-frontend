@@ -9,13 +9,11 @@ import {
   Bell,
   CaretDown,
 } from "@phosphor-icons/react";
-import { userLogout } from "../../redux/middlewares/auth-middlewares";
 import { useNavigate } from "react-router-dom";
-import { ModalMessage } from "../modal/modal-message/modal-message";
 import { useState } from "react";
-import { handleLogout } from "../../utils/handle-logout";
-import { ModalOptionProfile } from "../modal/modal-option-profile/modal-option-profile";
-import { ModalNotification } from "../modal/modal-notification/modal-notification";
+import { ModalMessage } from "../modal/messages/modal-message";
+import { ModalOptionProfile } from "../modal/profile/modal-option-profile";
+import { ModalNotification } from "../modal/notification/modal-notification";
 
 export const NavBar = () => {
   const [openMessage, setOpenMessage] = useState(false);

@@ -3,7 +3,7 @@ import { AiFillVideoCamera } from "react-icons/ai";
 import { IoImages } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import { ModalPostCreate } from "../../../modal/modal-create-post/modal-create-post";
+import { ModalPostCreate } from "../../modal/post/modal-create-post";
 
 export const CardCreatePost = () => {
   const [createPost, setCreatePost] = useState(false);

@@ -12,8 +12,8 @@ import {
 import { AiFillDislike, AiFillHeart } from "react-icons/ai";
 import { FaFaceLaughSquint } from "react-icons/fa6";
 import { BsFillEmojiSmileFill, BsFillEmojiAngryFill } from "react-icons/bs";
-import { compareTimeCreated } from "../../../../utils/compare-time-created";
-import { api } from "../../../../api/axios";
+import { compareTimeCreated } from "../../../utils/compare-time-created";
+import { api } from "../../../api/axios";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 

@@ -9,8 +9,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css";
 import "../../css/style.css";
-import { PostList } from "../../component/card/post/post-list/postlist";
-import { CardCreatePost } from "../../component/card/post/card-create-post/card-create-post";
+import { PostList } from "../../component/card/post/post-list";
+import { CardCreatePost } from "../../component/card/post/card-create-post";
+
 export const HomePage = () => {
   const [post, setPost] = useState([]);
   const [onOpen, setOnOpen] = useState(false);
