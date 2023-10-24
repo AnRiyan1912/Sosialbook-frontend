@@ -1,4 +1,4 @@
-import { CardWatch } from "../../component/card/card-watch/cardwatch";
+import { CardWatch } from "../../component/card/watch/cardwatch";
 import { NavTemplate } from "../../component/template/navtemplate";
 
 export const WatchVideo = () => {

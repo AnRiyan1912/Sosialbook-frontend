@@ -1,5 +1,5 @@
 import { HomePage } from "../pages/home/home";
-import { LoginPage } from "../pages/login/login";
+import { PageLogin } from "../pages/auth/login";
 import { Marketplace } from "../pages/marketplace/marketplace";
 import { RedirectLogin } from "../pages/redirect/redirect-login";
 import { WatchVideo } from "../pages/watch/watch-video";
@@ -18,7 +18,7 @@ class RouteClass {
 }
 
 export const routes = [
-  new RouteClass("login", <LoginPage />, false, true),
+  new RouteClass("login", <PageLogin />, false, true),
   new RouteClass("home", <HomePage />, true, false),
   new RouteClass("marketplace", <Marketplace />, true, false),
   new RouteClass("watchvideo", <WatchVideo />),

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { PostCard } from "../../component/card/post-card/postcard";
-import { StoryCard } from "../../component/card/story-card/storycard";
+import { StoryCard } from "../../component/card/story/storycard";
 import { NavTemplate } from "../../component/template/navtemplate";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { api } from "../../api/axios";
@@ -10,8 +9,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css";
 import "../../css/style.css";
-import { compareTimeCreated } from "../../utils/compare-time-created";
-import { CardCreatePost } from "../../component/card/card-create-post/card-create-post";
+import { PostList } from "../../component/card/post/post-list/postlist";
+import { CardCreatePost } from "../../component/card/post/card-create-post/card-create-post";
 export const HomePage = () => {
   const [post, setPost] = useState([]);
   const [onOpen, setOnOpen] = useState(false);
@@ -58,7 +57,7 @@ export const HomePage = () => {
               </div> */}
             </div>
             <CardCreatePost />
-            <PostCard post={post} />;
+            <PostList post={post} />;
           </div>
           <div
             className="mt-14 h-full  bg-white ml-1"

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { ProductCard } from "../../component/card/product-card/productcard";
 import { NavTemplate } from "../../component/template/navtemplate";
 import { api } from "../../api/axios";
+import { ProductCard } from "../../component/card/product/product-card/productcard";
 
 export const Marketplace = () => {
   const [product, setProduct] = useState([]);

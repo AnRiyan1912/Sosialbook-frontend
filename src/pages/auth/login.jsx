@@ -33,7 +33,7 @@ import { showToast } from "../../lib/toast";
 import BgLogin from "../../assets/commuication.jpg";
 import { useState } from "react";
 
-export const LoginPage = () => {
+export const PageLogin = () => {
   const [seePassword, setSeepassword] = useState(false);
   const nav = useNavigate();
   const dispatch = useDispatch();
