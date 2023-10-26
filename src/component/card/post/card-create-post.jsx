@@ -17,7 +17,9 @@ export const CardCreatePost = () => {
         <div className="flex gap-2 justify-between items-center">
           <img
             className="w-10 h-10 rounded-full"
-            src={userSelector.image_profile}
+            src={URL.createObjectURL(
+              new Blob([userSelector.imageUser], { type: "image/png" })
+            )}
             alt=""
           />
           <div

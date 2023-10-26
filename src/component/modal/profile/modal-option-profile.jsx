@@ -1,10 +1,11 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { handleLogout } from "../../../utils/handle-logout";
 
-export const ModalOptionProfile = ({ imageUser }) => {
+export const ModalOptionProfile = () => {
   const dispatch = useDispatch();
   const nav = useNavigate();
+  const userSelector = useSelector((state) => state.auth);
   return (
     <div className="col-auto absolute bg-white -ml-72 w-80 p-3">
       <div className=" border-b-2 border-purple-900 p-3">
@@ -12,7 +13,9 @@ export const ModalOptionProfile = ({ imageUser }) => {
           <div className="flex gap-2 justify-center items-center object-cover">
             <img
               className="w-10 h-10 rounded-full"
-              src={imageUser}
+              src={URL.createObjectURL(
+                new Blob([userSelector.imageUser], { type: "image/png" })
+              )}
               alt="img-profile"
             />
             <span>Andre Riyanto</span>

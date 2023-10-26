@@ -16,11 +16,27 @@ import { compareTimeCreated } from "../../../utils/compare-time-created";
 import { api } from "../../../api/axios";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import handleImageBlob from "../../../utils/handle-image-blob";
 
 export const PostCard = ({ post, key }) => {
   const userSelector = useSelector((state) => state.auth);
   const renderImagePost = process.env.REACT_APP_API_IMAGE_POSTS_URL;
-
+  const [imageUserPost, setImageUserPost] = useState(null);
+  // console.log(imageUserPost);
+  const fetchImageUserPost = () => {
+    try {
+      api
+        .get(`/auth/renderimage/${post.users.id}`, {
+          responseType: "blob",
+        })
+        .then((result) => setImageUserPost(result.data));
+    } catch (err) {
+      console.error("Error in fetch image post user", err);
+    }
+  };
+  useEffect(() => {
+    fetchImageUserPost();
+  }, [post]);
   return (
     <>
       return (
@@ -31,7 +47,7 @@ export const PostCard = ({ post, key }) => {
         <div className="flex gap-2 p-2">
           <div>
             <img
-              src={post?.users?.image_profile}
+              src={URL.createObjectURL(new Blob([imageUserPost]))}
               alt="profileimage"
               className="rounded-full w-10 h-10 object-fill"
             />

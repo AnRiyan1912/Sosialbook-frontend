@@ -3,13 +3,20 @@ import { types } from "../types/types";
 
 export const userLogin = (values) => {
   return async (dispatch) => {
-    console.log(values);
+    // console.log(values);
     try {
       if (values?.data?.token) {
         localStorage.setItem("auth", values?.data?.token);
+        const user = values?.data?.user;
+
+        const imageUser = await api
+          .get(`/auth/renderimage/${user.id}`, {
+            responseType: "blob",
+          })
+          .then((result) => result.data);
         dispatch({
           type: types.USER_LOGIN,
-          payload: values?.data?.user,
+          payload: { ...user, imageUser },
         });
       }
       const response = await api.post("/auth/login", { ...values });
@@ -20,10 +27,18 @@ export const userLogin = (values) => {
       const user = response?.data?.user;
       //set token to localstorage
       localStorage.setItem("auth", response?.data?.token);
+      //get image blob user
+      console.log(user.id);
+      const imageUser = await api
+        .get(`/auth/renderimage/${user.id}`, {
+          responseType: "blob",
+        })
+        .then((result) => result.data);
+      // console.log(imageUser.data, "ini data image user");
 
       dispatch({
         type: types.USER_LOGIN,
-        payload: user,
+        payload: { ...user, imageUser },
       });
       return types.success;
     } catch (err) {

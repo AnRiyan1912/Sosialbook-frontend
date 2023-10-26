@@ -16,11 +16,10 @@ import { ModalOptionProfile } from "../modal/profile/modal-option-profile";
 import { ModalNotification } from "../modal/notification/modal-notification";
 import { api } from "../../api/axios";
 
-export const NavBar = ({ imageUser }) => {
+export const NavBar = () => {
   const [openMessage, setOpenMessage] = useState(false);
   const [openProfile, setOpenProfile] = useState(false);
   const [openNotification, setOpenNotification] = useState(false);
-  const dispatch = useDispatch();
   const nav = useNavigate();
   const userSelector = useSelector((state) => state.auth);
 
@@ -95,12 +94,18 @@ export const NavBar = ({ imageUser }) => {
                 : () => setOpenProfile(true)
             }
           >
-            <img src={imageUser} alt="" className="rounded-full w-12 h-12" />
+            <img
+              src={URL.createObjectURL(
+                new Blob([userSelector.imageUser], { type: "image/png" })
+              )}
+              alt=""
+              className="rounded-full w-12 h-12"
+            />
             <div className="absolute top-8 right-5 text-white font-bold rounded-full w-4 h-4 bg-gray-900">
               <CaretDown size={18} />
             </div>
 
-            {openProfile ? <ModalOptionProfile imageUser={imageUser} /> : ""}
+            {openProfile ? <ModalOptionProfile /> : ""}
           </div>
         </div>
       </nav>

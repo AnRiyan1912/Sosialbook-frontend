@@ -28,7 +28,9 @@ export const ModalPostCreate = ({ setCreatePost }) => {
           <div className="flex gap-2">
             <div>
               <img
-                src={userSelector.image_profile}
+                src={URL.createObjectURL(
+                  new Blob([userSelector.imageUser], { type: "image/png" })
+                )}
                 alt="img-profile"
                 className="w-10 h-10 rounded-full"
               />

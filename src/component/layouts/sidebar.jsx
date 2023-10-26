@@ -12,7 +12,13 @@ export const SideBar = ({ imageUser }) => {
           <div className="h-20  "></div>
           <div className="flex gap-2 ml-2">
             <div className="w-10 h-10">
-              <img src={imageUser} alt="" className="w-10 h-10 rounded-full" />
+              <img
+                src={URL.createObjectURL(
+                  new Blob([userSelector.imageUser], { type: "image/png" })
+                )}
+                alt=""
+                className="w-10 h-10 rounded-full"
+              />
             </div>
             <div className="flex items-center justify-center">
               <span>
