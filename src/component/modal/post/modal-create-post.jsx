@@ -6,9 +6,11 @@ import { AiOutlineSmile, AiOutlineGif } from "react-icons/ai";
 import { IoImages } from "react-icons/io5";
 import { BsFillEmojiLaughingFill } from "react-icons/bs";
 import { Input } from "@chakra-ui/react";
+import { useState } from "react";
 
 export const ModalPostCreate = ({ setCreatePost }) => {
   const userSelector = useSelector((state) => state.auth);
+  const [openFileImage, setOpenFileImage] = useState(false);
   return (
     <div className="fixed w-full z-50 h-full  left-0 top-0 justify-center items-center flex bg-black bg-opacity-40">
       {" "}
@@ -45,10 +47,10 @@ export const ModalPostCreate = ({ setCreatePost }) => {
             </div>
           </div>
           <div className="mt-2 border border-slate-400">
-            <textarea className="h-80 w-full resize-none" type="text" />
+            <textarea className="h-60 w-full resize-none" type="text" />
           </div>
           <div className="mt-2">
-            <input type="file" />
+            <img src="" alt="" />
           </div>
           <div className="flex justify-between mt-4">
             <div className="w-10 h-10 rounded-md flex items-center justify-center bg-orange-200">
@@ -61,15 +63,39 @@ export const ModalPostCreate = ({ setCreatePost }) => {
             <div>
               <span>Tambahkan ke Postingan Anda</span>
             </div>
-            <div className="flex justify-between gap-5">
-              <IoImages size={28} />
-              <FaUserTag size={28} />
-              <BsFillEmojiLaughingFill size={28} />
-              <FaLocationDot size={28} />
+            <div className="flex justify-between gap-3">
+              {/* Image */}
+              <input
+                id="imageUpload"
+                type="file"
+                className="w-10 h-10 hidden"
+              />
+              <label
+                for="imageUpload"
+                className="h-10 w-10 p-1 flex items-center justify-center rounded-full hover:bg-slate-200 cursor-pointer"
+              >
+                <IoImages className="cursor-pointer" size={28} />
+              </label>
+              {/* User tag */}
+              <div className="h-10 w-10 flex items-center justify-center rounded-full hover:bg-slate-200 cursor-pointer">
+                <FaUserTag size={28} />
+              </div>
+              {/* Emoji */}
+              <div className="h-10 w-10 flex items-center justify-center rounded-full hover:bg-slate-200 cursor-pointer">
+                <BsFillEmojiLaughingFill size={28} />
+              </div>
+              {/* Location */}
+              <div className="h-10 w-10 flex items-center justify-center rounded-full hover:bg-slate-200 cursor-pointer">
+                <FaLocationDot size={28} />
+              </div>
+              {/* GIF */}
               <div className="flex justify-center items-center w-10 h-10">
                 <AiOutlineGif size={28} />
               </div>
-              <BiDotsHorizontalRounded size={28} />
+              {/* Other */}{" "}
+              <div className="h-10 w-10 flex items-center justify-center rounded-full hover:bg-slate-200 cursor-pointer">
+                <BiDotsHorizontalRounded size={28} />
+              </div>
             </div>
           </div>
           <button className="w-full h-8 flex justify-center items-center bg-purple-950 text-white">
