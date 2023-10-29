@@ -4,11 +4,13 @@ import React from "react";
 
 function App() {
   return (
-    <Routes>
-      {routes.map((route, i) => (
-        <Route {...route} key={i} />
-      ))}
-    </Routes>
+    <>
+      <Routes>
+        {routes.map((route, i) => (
+          <Route {...route} key={i} />
+        ))}
+      </Routes>
+    </>
   );
 }
 

@@ -9,14 +9,14 @@ import {
   SmileySad,
   SmileyAngry,
 } from "@phosphor-icons/react";
-import { AiFillDislike, AiFillHeart } from "react-icons/ai";
+import { AiFillDislike, AiFillHeart, AiOutlineEllipsis } from "react-icons/ai";
 import { FaFaceLaughSquint } from "react-icons/fa6";
+import { MdOutlineClose } from "react-icons/md";
 import { BsFillEmojiSmileFill, BsFillEmojiAngryFill } from "react-icons/bs";
 import { compareTimeCreated } from "../../../utils/compare-time-created";
 import { api } from "../../../api/axios";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import handleImageBlob from "../../../utils/handle-image-blob";
 
 export const PostCard = ({ post, key }) => {
   const userSelector = useSelector((state) => state.auth);
@@ -39,27 +39,39 @@ export const PostCard = ({ post, key }) => {
   }, [post]);
   return (
     <>
-      return (
       <div
-        className="col-auto border-2 bg-slate-100 rounded-lg mt-5 "
+        className="col-auto border-2 bg-slate-100 rounded-lg  mt-5"
         key={key}
       >
-        <div className="flex gap-2 p-2">
-          <div>
-            <img
-              src={URL.createObjectURL(new Blob([imageUserPost]))}
-              alt="profileimage"
-              className="rounded-full w-10 h-10 object-fill"
-            />
-          </div>
-          <div className=" flex items-center ">
-            <div className="font-semibold text-sm">
-              <span>{post?.users?.firstname}</span>
+        <div className="flex justify-between gap-2">
+          <div className="flex gap-2 p-2">
+            <div>
+              <img
+                src={URL.createObjectURL(new Blob([imageUserPost]))}
+                alt="profileimage"
+                className="rounded-full w-10 h-10 object-fill"
+              />
             </div>
+            <div className=" flex items-center ">
+              <div className="font-semibold text-sm">
+                <span>{post?.users?.firstname}</span>
+              </div>
 
-            <div className="absolute mt-10 text-xs">
-              {compareTimeCreated(post?.createdAt)}
+              <div className="absolute mt-10 text-xs">
+                {compareTimeCreated(post?.createdAt)}
+              </div>
             </div>
+          </div>
+
+          <div className="flex justify-center items-center gap-2">
+            <div></div>
+            <div>
+              <AiOutlineEllipsis className="w-7 h-7" />
+            </div>
+            <div>
+              <MdOutlineClose className="w-7 h-7" />
+            </div>
+            <div></div>
           </div>
         </div>
         <div className="col-auto p-2">
@@ -121,7 +133,6 @@ export const PostCard = ({ post, key }) => {
           </div>
         </div>
       </div>
-      );
     </>
   );
 };
